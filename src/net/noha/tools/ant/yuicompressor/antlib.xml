@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<antlib>
+  <!-- Tasks -->
+  <taskdef name="compress"
+    classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorFilesetTask" />
+   
+  <taskdef name="simple"
+  	classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask" />
+    
+</antlib>

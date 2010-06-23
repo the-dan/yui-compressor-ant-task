@@ -16,7 +16,13 @@ import org.mozilla.javascript.EvaluatorException;
 import com.yahoo.platform.yui.compressor.CssCompressor;
 import com.yahoo.platform.yui.compressor.JavaScriptCompressor;
 
-// TODO: remote formDir, because it should be specified already in fileset
+/**
+ * 
+ * Same as {@link YuiCompressorTask} but accepts &lt;fileset&gt;s inside
+ * 
+ * @author the-dan
+ *
+ */
 public class YuiCompressorFilesetTask extends Task {
 
 	protected File toDir;
