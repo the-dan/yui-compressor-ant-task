@@ -35,7 +35,8 @@ public class YuiCompressorFilesetTask extends Task {
 	protected boolean preserveAllSemiColons = true;
 	protected boolean optimize = true;
 	private List<FileSet> filesets = new ArrayList<FileSet>();
-
+	private boolean doOverwrite;
+	
 	// suffixes
 	protected String jsSuffix = "-min.js";
 	protected String cssSuffix = "-min.css";
@@ -78,7 +79,7 @@ public class YuiCompressorFilesetTask extends Task {
 		// always recompress when outFile and inFile are exactly the same file
 		if (outFile.isFile()
 				&& !inFile.getAbsolutePath().equals(outFile.getAbsolutePath())) {
-			if (outFile.lastModified() >= inFile.lastModified()) {
+			if (!doOverwrite && outFile.lastModified() >= inFile.lastModified()) {
 				return;
 			}
 		}
@@ -222,5 +223,9 @@ public class YuiCompressorFilesetTask extends Task {
 
 	public void setCssSuffix(String cssSuffix) {
 		this.cssSuffix = cssSuffix;
+	}
+	
+	public void setOverwrite(boolean doOverwrite) {
+		this.doOverwrite = doOverwrite;
 	}
 }
